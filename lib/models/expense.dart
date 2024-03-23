@@ -6,7 +6,7 @@ final formatter = DateFormat.yMd();
 const uuid = Uuid();
 
 enum Category {
-  foodAndGroceries,
+  food,
   transportation,
   housing,
   utilities,
@@ -15,16 +15,16 @@ enum Category {
   personal,
   entertainment,
   education,
-  debtPayments,
-  savingsAndInvestments,
+  debts,
+  investments,
   clothing,
-  giftsAndDonations,
+  donations,
   pets,
   miscellaneous,
 }
 
 const categoryIcons = {
-  Category.foodAndGroceries: Icon(Icons.fastfood),
+  Category.food: Icon(Icons.fastfood),
   Category.transportation: Icon(Icons.flight_takeoff),
   Category.housing: Icon(Icons.home),
   Category.utilities: Icon(Icons.lightbulb),
@@ -33,10 +33,10 @@ const categoryIcons = {
   Category.personal: Icon(Icons.person),
   Category.entertainment: Icon(Icons.movie),
   Category.education: Icon(Icons.school),
-  Category.debtPayments: Icon(Icons.money_off),
-  Category.savingsAndInvestments: Icon(Icons.account_balance),
+  Category.debts: Icon(Icons.money_off),
+  Category.investments: Icon(Icons.account_balance),
   Category.clothing: Icon(Icons.shopping_bag),
-  Category.giftsAndDonations: Icon(Icons.card_giftcard),
+  Category.donations: Icon(Icons.card_giftcard),
   Category.pets: Icon(Icons.pets),
   Category.miscellaneous: Icon(Icons.more_horiz),
 };
