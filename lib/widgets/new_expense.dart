@@ -53,6 +53,14 @@ class _NewExpenseState extends State<NewExpense> {
         ),
       );
       return;
+    } else {
+      final newExpense = Expense(
+        title: _titleController.text,
+        amount: enteredAmount,
+        date: _selectedDate!,
+        category: _selecetedCategory,
+      );
+      return Navigator.pop(context, newExpense);
     }
   }
 
@@ -88,7 +96,7 @@ class _NewExpenseState extends State<NewExpense> {
                     prefixText: '\$ ',
                   ),
                   inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.allow(RegExp(r'[0-9],[.]')),
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9.]')),
                   ],
                 ),
               ),

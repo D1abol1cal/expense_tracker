@@ -31,11 +31,21 @@ class _ExpensesState extends State<Expenses> {
     ),
   ];
 
-  void _openAddExpenseOverlay() {
-    showModalBottomSheet(
+  void _openAddExpenseOverlay() async {
+    var toAdd = await showModalBottomSheet(
+      isScrollControlled: true,
       context: context,
       builder: (ctx) => const NewExpense(),
     );
+    if (toAdd != null) {
+      _addExpense(toAdd);
+    }
+  }
+
+  void _addExpense(Expense newExpense) {
+    setState(() {
+      _userExpenses.add(newExpense);
+    });
   }
 
   @override
