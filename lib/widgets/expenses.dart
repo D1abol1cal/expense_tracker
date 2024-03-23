@@ -46,16 +46,62 @@ class _ExpensesState extends State<Expenses> {
     setState(() {
       _userExpenses.add(newExpense);
     });
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('Expense Added!'),
+        duration: const Duration(seconds: 2),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(
+              () {
+                _userExpenses.remove(newExpense);
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 
   void _removeExpense(Expense expense) {
-    setState() {
+    final expenseIndex = _userExpenses.indexOf(expense);
+    setState(() {
       _userExpenses.remove(expense);
-    }
+    });
+
+    ScaffoldMessenger.of(context).clearSnackBars();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: const Text('Expense Removed!'),
+        duration: const Duration(seconds: 2),
+        action: SnackBarAction(
+          label: 'Undo',
+          onPressed: () {
+            setState(
+              () {
+                _userExpenses.insert(expenseIndex, expense);
+              },
+            );
+          },
+        ),
+      ),
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    Widget mainContent = const Center(
+      child: Text('There are no Expenses!'),
+    );
+
+    if (_userExpenses.isNotEmpty) {
+      mainContent = ExpensesList(
+        expenses: _userExpenses,
+        onRemoveExpense: _removeExpense,
+      );
+    }
     return Scaffold(
         appBar: AppBar(title: const Text('Expense Tracker'), actions: [
           IconButton(
@@ -67,10 +113,8 @@ class _ExpensesState extends State<Expenses> {
           children: [
             const Text('The Chart'),
             Expanded(
-                child: ExpensesList(
-              expenses: _userExpenses,
-              onRemoveExpense: _removeExpense,
-            )),
+              child: mainContent,
+            ),
           ],
         ));
   }
