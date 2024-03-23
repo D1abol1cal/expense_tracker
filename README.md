@@ -26,4 +26,14 @@ Flutter Expense Tracker is a simple and intuitive mobile application designed to
 
 ## Screenshots
 
+![alt text](<screenshots/WhatsApp Image 2024-03-23 at 4.11.39 PM.jpeg>)
+
+![alt text](<screenshots/WhatsApp Image 2024-03-23 at 4.11.38 PM (1).jpeg>)
+
+![alt text](<screenshots/WhatsApp Image 2024-03-23 at 4.11.38 PM.jpeg>)
+
+![alt text](<screenshots/WhatsApp Image 2024-03-23 at 4.11.37 PM.jpeg>)
+
+
+
 
